@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Morphing Page Transition | Demo 1 | Codrops</title>
+	<meta name="description" content="A page transition where one SVG path is morphed into another"/>
+	<meta name="keywords" content="page transition, svg, morph, path, javascript, web design, web dev"/>
+	<meta name="author" content="Codrops"/>
+	<!-- <link href="/assets/css/reset.css" rel="stylesheet" type="text/css"> -->
+	<link rel="shortcut icon" href="./assets/animation/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Spectral:200" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./assets/animation/p-css/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/animation/p-css/demo.css"/>
+	<link rel="stylesheet" type="text/css" href="./assets/animation/pater/pater.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="../p-css/styl"/> -->
+	<script>document.documentElement.className = 'js';</script>
+
+
+	<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'
+		type='text/css'>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'
+		type='text/css'>
+
+	<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+
+	<link
+		href="https://fonts.googleapis.com/css?family=Cinzel|Cormorant+Garamond|Playfair+Display+SC|Rokkitt|ZCOOL+XiaoWei&display=swap"
+		rel="stylesheet">
+
+</head>
+
+<body class="demo-1 loading">
+	<svg class="hidden">
+		<symbol id="icon-arrow" viewBox="0 0 24 24">
+			<title>arrow</title>
+			<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 " />
+		</symbol>
+		<symbol id="icon-drop" viewBox="0 0 24 24">
+			<title>drop</title>
+			<path
+				d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z" />
+			<path
+				d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z" />
+		</symbol>
+		<symbol id="icon-github" viewBox="0 0 32.6 31.8">
+			<title>github</title>
+			<path
+				d="M16.3,0C7.3,0,0,7.3,0,16.3c0,7.2,4.7,13.3,11.1,15.5c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4C7.4,10.7,6.8,9,7.7,6.8c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C32.6,7.3,25.3,0,16.3,0z" />
+		</symbol>
+	</svg>
+
+	<!-- <main> -->
+		 <div class="content content--intro">
+
+			<div class="content__inner">
+				<h2 class="content__title">Gabrielle Umbach</h2>
+				<h3 class="content__subtitle">web Designer</h3>
+				<a href="#" class="enter">enter</a>
+			</div>
+
+			<div class="shape-wrap">
+				<svg class="shape" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800"
+					xmlns:pathdata="http://www.codrops.com/">
+					<path
+						d="M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z"
+						pathdata:id="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z">
+					</path>
+				</svg>
+
+			</div>
+
+
+
+			<div id="main-content-section" data-magellan-target="main-content-section">
+
+				<div class="row medium-8 large-7 columns">
+
+					<div class="intro">
+						<h3>INTRODUCTORY PAGE</h3>
+						<div id="biopic">
+							<img class="thumbnail" src="./assets/images/IMG3.jpg">
+						</div>
+						<p>
+							Hi my name is Gabbi. I'm from Michigan but born in Oklahoma. This is my first time
+							studying
+							anything
+							related
+							to coding. I came down to Kansas in order to attend University of Kansas in Lawrence. I
+							double
+							majored
+							in
+							Visual Arts with a concentration in jewelry/metalsmithing and Korean Language and
+							Culture
+							Studies. I
+							studied
+							there for two years before reevaluating my values and career goals and realised that it
+							wasn't a
+							great
+							fit
+							for me since I enjoy eating and being financially stable.
+						</p>
+						<p>
+							My downtime generally involves my boyfriend and I taking our dog to state parks in
+							Missouri
+							and
+							Arkansas
+							for
+							hiking and swimming. When I have the time I enjoy drawing, painting and sculpting.
+						</p>
+					</div>
+				</div>
+
+				<div id="portfolio-code" class="portfolio">
+					<h3>PORTFOLIO SECTION</h3>
+					<h3>CODE PORTFOLIO</h3>
+					<article class="grid-container">
+						<div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/Word_Guess_Game_200x200.jpg">
+								<h5>
+									<a class="text-white" href="https://umbachg.github.io/Word-Guess-Game/
+											">Word Guess Game</a>
+								</h5>
+							</div>
+
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/creature-collector_200x200.jpg">
+								<h5>
+									<a class="text-white" href="https://umbachg.github.io/unit-4-game/">Creature
+										Collector</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/trivia-game_200x200.jpg">
+								<h5>
+									<a class="text-white" href="https://umbachg.github.io/TriviaGame/">Trivia
+										Game</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/giphy_200x200.jpg">
+								<h5>
+									<a class="text-white" href="https://umbachg.github.io/giphy/">Giphy</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/train_200x200.jpg">
+								<h5>
+									<a class="text-white" href="https://umbachg.github.io/train-scheduler/">Train
+										Scheduler</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/Project1_200x200.jpg">
+								<h5>
+									<a class="text-white" href="https://umbachg.github.io/project-1/">Project
+										1</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+						</div>
+					</article>
+
+					<h3>ART PORTFOLIO</h3>
+					<article id="portfolio-art" class="grid-container">
+						<div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4">
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/jhs.JPG">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/becky.jpg">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/girl.jpg">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/gsd.JPG">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/purple-hair.jpg">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/memes.jpg">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="./assets/images/milo.jpg">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+							<div class="cell">
+								<img class="thumbnail" src="https://placehold.it/200x200">
+								<h5>
+									<a class="text-white" href="#">empty</a>
+								</h5>
+							</div>
+						</div>
+					</article>
+				</div>
+
+
+
+				<div class="blog-post">
+					<h3>CONTACT FORM SECTION</h3>
+					<section class="contact-us-section">
+						<div class="row medium-unstack">
+							<div class="columns contact-us-section-left">
+								<h1 class="contact-us-header">Get In Touch</h1>
+								<!-- <div class="responsive-embed">
+											<img src=""
+												alt="Google Map of campbell" alt="" />
+										</div> -->
+
+								<ul class="contact-us-list">
+									<li class="address">...</li>
+									<li class="email"><a href="mailto:">hello@yeticave.com</a></li>
+									<li class="phone">
+										1 (408) 445 9978
+									</li>
+								</ul>
+							</div>
+							<div class="columns contact-us-section-right">
+								<h1 class="contact-us-header">Mail Us</h1>
+								<form class="contact-us-form">
+									<input type="text" placeholder="Full name">
+									<input type="email" placeholder="Email">
+									<textarea name="message" id="" rows="12"
+										placeholder="Type your message here"></textarea>
+									<div class="contact-us-form-actions">
+										<input id="submitButton" type="submit" class="button" value="Send it" />
+										<div>
+											<label for="FileUpload" class="button contact-us-file-button">Attach
+												Files</label>
+											<input type="file" id="FileUpload" class="show-for-sr">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+
+	<!-- </main> -->
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+
+	<script src="./assets/animation/p-js/imagesloaded.pkgd.min.js"></script>
+	<script src="./assets/animation/p-js/charming.min.js"></script>
+	<script src="./assets/animation/p-js/anime.min.js"></script>
+	<script src="./assets/animation/demo1.js"></script>
+
+</body>
+
+</html>
